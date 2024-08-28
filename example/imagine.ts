@@ -23,6 +23,7 @@ async function main() {
     }
   );
   console.log(JSON.stringify(msg));
+  console.log(msg?.uri);
 }
 main().catch((err) => {
   console.error(err);

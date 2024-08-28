@@ -77,9 +77,14 @@ export class Command {
     if (data?.application_commands?.[0]) {
       return data.application_commands[0];
     }
-    throw new Error(`Failed to get application_commands for command ${name}`);
+    throw new Error(
+      `Failed to get application_commands for command ${name}`
+    );
   }
-  private safeFetch(input: RequestInfo | URL, init?: RequestInit | undefined) {
+  private safeFetch(
+    input: RequestInfo | URL,
+    init?: RequestInit | undefined
+  ) {
     const request = this.config.fetch.bind(this, input, init);
     return new Promise<Response>((resolve, reject) => {
       this.fetchQueue.push(
